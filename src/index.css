@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Looker Studio Print to PDF Styles */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide navigation, prompt bars, and buttons during PDF export */
+  header,
+  .print\:hidden,
+  button,
+  input,
+  form {
+    display: none !important;
+  }
+
+  /* High fidelity print borders and containers */
+  .shadow-sm,
+  .shadow-md,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  .rounded-2xl,
+  .rounded-xl {
+    border-radius: 8px !important;
+  }
+
+  /* Prevent awkward page breaks inside cards */
+  .bg-white,
+  .Scorecard,
+  svg {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 1cm;
+    size: A4 landscape;
+  }
+}
